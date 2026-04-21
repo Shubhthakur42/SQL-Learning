@@ -14,6 +14,7 @@ SELECT "title" FROM "books" WHERE id IN (
 SELECT "name" FROM "authors" WHERE id In(
     SELECT "author_id" FROM "authored" WHERE book_id IN(
         SELECT "book_id" FROM "awards" WHERE "winner" ='YES'));
+
 --3. Find books published by publisher 'Penguin'
 SELECT "title" FROM "books" WHERE "publisher_id" = (
     SELECT "id" FROM "publishers" WHERE "name"='Penguin');
