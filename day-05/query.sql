@@ -16,9 +16,12 @@ SELECT "name" FROM "authors" WHERE id In(
         SELECT "book_id" FROM "awards" WHERE "winner" ='YES'));
 
 --3. Find books published by publisher 'Penguin'
+
 SELECT "title" FROM "books" WHERE "publisher_id" = (
     SELECT "id" FROM "publishers" WHERE "name"='Penguin');
+
 --Find books with rating greater than average rating
+
 SELECT title FROM books WHERE id IN(
     SELECT book_id FROM ratings WHERE rating > (
         SELECT AVG(rating) FROM ratings));
